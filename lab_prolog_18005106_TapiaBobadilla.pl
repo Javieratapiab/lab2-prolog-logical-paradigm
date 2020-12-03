@@ -1,6 +1,6 @@
 % Hechos
 
-% ------------------  UTILS ------------------ 
+% ------------------  UTILS ------------------
 % Dominios
 % Elem: elemento cualquiera (átomo, número, lista, string, etc).
 % T: cola que representa cualquier elemento (átomo, número, lista, string, etc) en una lista.
@@ -41,10 +41,104 @@ replace(_,_,[],[]).
 replace(O,R,[O|T],[R|T2]):- replace(O,R,T,T2).
 replace(O,R,[H|T],[H|T2]):- H \= O, replace(O,R,T,T2).
 
-% ------------------  TDA STACK ------------------ 
+% ------------------  TDA STACK ------------------
+% Dominios
+
+% Predicados
+% stack(LoggedUser,Users,Questions,Answers)
+% stackRegister(Stack, Username, Password, Stack2)
+% stackLogin(Stack, Username, Password, Stack2)
+% ask(Stack, Fecha, TextoPregunta, ListaEtiquetas, Stack2)
+% answer(Stack, Fecha, IdPregunta, TextoRespuesta, ListaEtiquetas, Stack2)
+% accept(Stack, IdPregunta, IdRespuesta, Stack2)
+% vote(Stack,TdaPreguntaORespuesta,Voto,Stack2)
+% stackTostring(Stack, StackStr)
+% setVote(Stack,QuestionOrAnswer,Vote,R)
+
+% Metas
+% Principales: stackRegister,stackLogin,ask,answer,accept,vote,stackTostring
+% Secundarias: addRegistedUser,validateLogin,updateUsers,updateQuestions,updateAnswers, setVote
+
+% Cláusulas
+% Reglas
 stack(LoggedUser,Users,Questions,Answers,[LoggedUser,Users,Questions,Answers]).
+
+% ------------------  TDA USER ------------------
+% Dominios
+% Username string que representa la llave primaria y nombre de un usuario registrado.
+% Password: string que representa la password de un usuario registrado.
+% Reputation: número que representa la reputación de un usuario registrado.
+
+% Predicados
+% user(Username,Password,Reputation)
+% updateUsers(Users,UpdatedUser,UpdatedUsers)
+% updateQuestionAuthorReputation(Users,Question,UpdatedQuestionAuthor)
+% updateAnswerAuthorReputation(Users,Answer,UpdatedAnswerAuthor)
+
+% Metas
+% Primarias: user
+% Secundarias: updateUsers, updateQuestionAuthorReputation, updateAnswerAuthorReputation
+
+% Cláusulas
+% Reglas
 user(Username,Password,Reputation,[Username,Password,Reputation]).
+
+% ------------------ TDA QUESTION ------------------
+% Dominios
+% Id: número consecutivo que representa la llave primaria de una pregunta.
+% Author: string que representa al autor de una pregunta.
+% Date: string que representa la fecha de creación de una pregunta.
+% Text: string que representa el contenido de una pregunta.
+% Votes: número que presenta la cantidad de votos de una pregunta.
+% Status: string que presenta el estatus de una pregunta.
+% Labels: lista que presenta las etiquetas (tópicos) de una pregunta.
+% Question: representa una pregunta.
+% NewId: número que representa un nuevo id consecutivo.
+
+% Predicados
+% question(Id,Author,Date,Text,Votes,Status,Labels)
+% setQuestionId(Question,NewId)
+% addQuestion([H|T],[Author|_],Date,Text,Labels,Q)
+% validateQuestionId(Questions,QuestionId)
+% validateAuthorAndQuestion(Questions,QuestionId,[Author|_])
+% updateQuestions(Questions,UpdatedQuestion,UpdatedQuestions)
+% calculateQuestionReputation(boolean,Reputation)
+
+% Metas
+% Primarias: question, getQuestion
+% Secundarias: setQuestionId, addQuestion, validateQuestionId,
+% 			       validateAuthorAndQuestion, setQuestionAcceptStatus, updateQuestions, calculateQuestionReputation
+
+% Cláusulas
+% Reglas
 question(Id,Author,Date,Text,Votes,Status,Labels,[Id,Author,Date,Text,Votes,Status,Labels]).
+
+% ------------------  TDA ANSWER  ------------------
+% Dominios
+% Id: número consecutivo que representa la llave primaria de una respuesta.
+% QuestionId: número que representa el ID de una pregunta asociada a una respuesta.
+% Author: string que representa al autor de una respuesta.
+% Date: string que representa la fecha de creación de una respuesta.
+% Text: string que representa el contenido de una respuesta.
+% Votes: número que presenta la cantidad de votos de una respuesta.
+% Status: string que presenta el estatus de aceptación de una respuesta.
+% Labels: lista que presenta las etiquetas (tópicos) de una respuesta.
+
+% Predicados
+% answer(Id,QuestionId,Author,Date,Text,Votes,AcceptStatus,Labels)
+% setAnswerId(Answer,NewId)
+% addAnswer([H|T],QuestionId,[Author|_],Date,Text,Labels,[A]).
+% getAnswer(Stack,QuestionId,AnswerId,Answer)
+% updateAnswers(Answers,UpdatedAnswer,UpdatedAnswers)
+% calculateAnswerReputation(AnswerAuthor,[VoteAuthor|_],false,Reputation)
+
+% Metas
+% Primarias: answer, getAnswer
+% Secundarias: setAnswerId, addAnswer, validateAnswerId,
+%              setAnswerAcceptStatus, updateAnswers, calculateAnswerReputation
+
+% Cláusulas
+% Reglas
 answer(Id,QuestionId,Author,Date,Text,Votes,AcceptStatus,Labels,[Id,QuestionId,Author,Date,Text,Votes,AcceptStatus,Labels]).
 
 addRegistedUser(Users,Username,_,_):- exists(Users,[Username,_]),false.
@@ -274,8 +368,8 @@ stackTostring(Stack, StackStr):-
  atomic_list_concat(AnswersList,'',AnswersAtom),
  atom_string(AnswersAtom,AnswersStr),
  atomics_to_string([UsersStr,QuestionsStr,AnswersStr],'',StackStr).
- 
-/*
+
+/* 
 stackRegister([[],[],[],[]],"Fran", "sdad", R),
 stackRegister(R,"Javiera", "pa$$", R1),
 stackLogin(R1, "Javiera", "pa$$", R2),
@@ -297,4 +391,5 @@ vote(R13,Question2,false,R15),
 stackLogin(R15, "Fran", "sdad", R16),
 getAnswer(R16,2,2,Answer),
 vote(R16,Answer,false,R17),
-stackTostring(R17,StackStr).*/
+stackTostring(R17,StackStr).
+*/
