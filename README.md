@@ -4,6 +4,10 @@ Se presenta proyecto semestral de laboratorio de la asignatura **"Paradigmas de 
 
 ## Autora
 - [Javiera Tapia Bobadilla](https://github.com/javieratapiab)
+
+## Documentación sobre lenguaje Prolog
+- [Prolog Docs](https://www.swi-prolog.org/pldoc/index.html)
+
 ## Características
 
 - Paradigma: Lógico
@@ -18,7 +22,8 @@ mediante Homebrew. Para evitar problemas cross platform, se sugiere seguir las s
 (https://www.swi-prolog.org/Download.html) que se ajuste a la máquina local que testeará este código.
 
 - Importar archivo en plataforma SWI-Prolog for SHaring. Correr las queries necesarias en la terminal provista.
-- Clickear en botón `RUN`, esquina inferior derecha de la terminal.
+- Clickear en botón `Run`, esquina inferior derecha de la terminal.
+
 ## Características del laboratorio
 
 - Más sobre los requerimientos y especificaciones: [Link a la actividad](https://docs.google.com/document/d/1TwFzL2nr5yJ24qKY3V4Z-iSBFnZuGbB_tgJ2ov_UtJs)
