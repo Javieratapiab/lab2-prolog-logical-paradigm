@@ -1,0 +1,19 @@
+Según escala:
+
+0: No realizado.
+0.25: Implementación con problemas mayores (funciona 25% de las veces o no funciona)
+0.5: Implementación con funcionamiento irregular (funciona 50% de las veces)
+0.75: Implementación con problemas menores (funciona 75% de las veces)
+1: Implementación completa sin problemas (funciona 100% de las veces)
+
+AUTOEVALUCIÓN:
+
+Requerimientos funcionales y no funcionales
+
+stackRegister: 1
+stackLogin: 1
+ask: 1
+answer: 1
+accept: 1
+stackTostring: 0.75
+vote: 1

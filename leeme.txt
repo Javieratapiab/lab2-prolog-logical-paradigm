@@ -1,9 +1,3 @@
-# Laboratorio paradigmas: [Stackoverflow](https://stackoverflow.com/)
-
-Se presenta proyecto semestral de laboratorio de la asignatura **"Paradigmas de programación"** de la Universidad Santiago de Chile, que consta en la creación de un clon de la aplicación Stackoverflow en el lenguaje Prolog, que consolida los conocimientos del paradigma lógico.
-
-## Autora
-- [Javiera Tapia Bobadilla](https://github.com/javieratapiab)
 ## Características
 
 - Paradigma: Lógico
@@ -19,6 +13,3 @@ mediante Homebrew. Para evitar problemas cross platform, se sugiere seguir las s
 
 - Importar archivo en plataforma SWI-Prolog for SHaring. Correr las queries necesarias en la terminal provista.
 - Clickear en botón `RUN`, esquina inferior derecha de la terminal.
-## Características del laboratorio
-
-- Más sobre los requerimientos y especificaciones: [Link a la actividad](https://docs.google.com/document/d/1TwFzL2nr5yJ24qKY3V4Z-iSBFnZuGbB_tgJ2ov_UtJs)
