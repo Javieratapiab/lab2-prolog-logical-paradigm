@@ -61,8 +61,8 @@ replace(O,R,[H|T],[H|T2]):- H \= O, replace(O,R,T,T2).
 
 % Hechos
 stack(LoggedUser,Users,Questions,Answers,[LoggedUser,Users,Questions,Answers]).
-stack([],[["Bilz y Pap", "pa$$",0],["Pepsi", "pa$$w0rd",0]],[[1,"Bilz y Pap", "2020-12-01", "¿Qué es un string?", 15, "abierta", ["Computer science","Paradigms"]]],[[1, 1, "Pepsi", "2020-12-01","Es una secuencia de caracteres", 0,"no", ["Computer science", "Paradigms"]]],_).
-stack([],[["Coca Cola", "12345",20],["Fanta", "p4ss",0]],[[1,"Fanta", "2020-12-02", "¿Qué es un scope?", 2, "abierta", ["Computer science","Javascript"]]],[[1, 1, "Coca Cola", "2020-12-03","Contexto que pertenece a un nombre dentro de un programa", 0,"no", ["Computer science", "Javascript"]]],_).
+%stack([],[["Bilz y Pap", "pa$$",0],["Pepsi", "pa$$w0rd",0]],[[1,"Bilz y Pap", "2020-12-01", "¿Qué es un string?", 15, "abierta", ["Computer science","Paradigms"]]],[[1, 1, "Pepsi", "2020-12-01","Es una secuencia de caracteres", 0,"no", ["Computer science", "Paradigms"]]],_).
+%stack([],[["Coca Cola", "12345",20],["Fanta", "p4ss",0]],[[1,"Fanta", "2020-12-02", "¿Qué es un scope?", 2, "abierta", ["Computer science","Javascript"]]],[[1, 1, "Coca Cola", "2020-12-03","Contexto que pertenece a un nombre dentro de un programa", 0,"no", ["Computer science", "Javascript"]]],_).
 
 % ------------------  TDA USER  ------------------
 % Dominios
@@ -85,10 +85,10 @@ stack([],[["Coca Cola", "12345",20],["Fanta", "p4ss",0]],[[1,"Fanta", "2020-12-0
 
 % Hechos
 user(Username,Password,Reputation,[Username,Password,Reputation]).
-user("Quatro","mypass",10,_).
-user("Sprite","customPa$$",0,_).
-user("Inca Cola","admin",22,_).
-user("DrPepper","admin",8,_).
+%user("Quatro","mypass",10,_).
+%user("Sprite","customPa$$",0,_).
+%user("Inca Cola","admin",22,_).
+%user("DrPepper","admin",8,_).
 
 % ------------------ TDA QUESTION ------------------
 % Dominios
@@ -121,11 +121,11 @@ user("DrPepper","admin",8,_).
 
 % Hechos
 question(Id,Author,Date,Text,Votes,Status,Labels,[Id,Author,Date,Text,Votes,Status,Labels]).
-question(1,"Coca Cola","2020-12-02","¿Cómo funciona Elixir?",10,"abierta",["elixir", "functional programming"]).
-question(2,"Pepsi","2020-11-22","¿Qué es un Grafo?",5,"abierta",["algorithms", "computer science"]).
-question(3,"Fanta","2020-11-05","¿Cuáles son los lenguajes más populares el 2020?",0,"abierta",["programming languages", "computer science"]).
-question(4,"Inca Cola","2020-10-08","¿Cómo funciona malloc?",8,"abierta",["C", "memory management"]).
-question(5,"DrPepper","2020-02-11","¿Cuál es la diferencia entre .map y .forEach?",0,"abierta",["javascript", "high order functions"]).
+%question(1,"Coca Cola","2020-12-02","¿Cómo funciona Elixir?",10,"abierta",["elixir", "functional programming"],_).
+%question(2,"Pepsi","2020-11-22","¿Qué es un Grafo?",5,"abierta",["algorithms", "computer science"],_).
+%question(3,"Fanta","2020-11-05","¿Cuáles son los lenguajes más populares el 2020?",0,"abierta",["programming languages", "computer science"],_).
+%question(4,"Inca Cola","2020-10-08","¿Cómo funciona malloc?",8,"abierta",["C", "memory management"],_).
+%question(5,"DrPepper","2020-02-11","¿Cuál es la diferencia entre .map y .forEach?",0,"abierta",["javascript", "high order functions"],_).
 
 % ------------------  TDA ANSWER  ------------------
 % Dominios
@@ -155,16 +155,16 @@ question(5,"DrPepper","2020-02-11","¿Cuál es la diferencia entre .map y .forEa
 %              answerString, answersToString.
 
 answer(Id,QuestionId,Author,Date,Text,Votes,AcceptStatus,Labels,[Id,QuestionId,Author,Date,Text,Votes,AcceptStatus,Labels]).
-answer(1,1,"Pepsi","2020-12-03","No lo sé, pero es cool",-10,"abierta",["elixir", "functional programming"],_).
-answer(2,1,"Coca Cola","2020-12-03","Elixir es un lenguaje de programación funcional, concurrente, de propósito general que se ejecuta sobre la máquina virtual de Erlang",20,"cerrada",["elixir", "functional programming"],_).
-answer(3,2,"Inca Cola","2020-11-05","Un grafo consiste de un conjunto V de vértices (o nodos) y un conjunto E de arcos que conectan a esos vértices",40,"abierta",["algorithms", "computer science"],_).
-answer(4,2,"Fanta","2020-10-08","LTGFY.",-40,"abierta",["algorithms", "computer science"],_).
-answer(5,3,"Coca Cola","2020-02-11","Probablemente Python, por su uso en Data science",20,"abierta",["programming languages", "computer science"],_).
-answer(6,3,"DrPepper","2020-12-02","Diría que Ruby, por la madurez del lenguage y su comunidad",50,"abierta",["programming languages", "computer science"],_).
-answer(7,4,"Quatro","2020-11-22","Me cuesta entenderlo también",-5,"abierta",["C", "memory management"],_).
-answer(8,4,"DrPepper","2020-11-05","La asignación dinámica de memoria en el Lenguaje de programación C, se realiza a través de un grupo de funciones en la biblioteca estándar de C, como malloc",30,"cerrada",["C", "memory management"],_).
-answer(9,5,"Fanta","2020-10-08","Map retorna un nuevo arreglo, mientras que forEach modifica el arreglo original",45,"abierta",["javascript", "high order functions"],_).
-answer(10,5,"Sprite","2020-02-11","El método forEach() está pensado para recorrer colecciones, mientras que el método map() está pensado para iterar sobre una colección dada",48,"abierta",["javascript", "high order functions"],_).
+%answer(1,1,"Pepsi","2020-12-03","No lo sé, pero es cool",-10,"abierta",["elixir", "functional programming"],_).
+%answer(2,1,"Coca Cola","2020-12-03","Elixir es un lenguaje de programación funcional, concurrente, de propósito general que se ejecuta sobre la máquina virtual de Erlang",20,"cerrada",["elixir", "functional programming"],_).
+%answer(3,2,"Inca Cola","2020-11-05","Un grafo consiste de un conjunto V de vértices (o nodos) y un conjunto E de arcos que conectan a esos vértices",40,"abierta",["algorithms", "computer science"],_).
+%answer(4,2,"Fanta","2020-10-08","LTGFY.",-40,"abierta",["algorithms", "computer science"],_).
+%answer(5,3,"Coca Cola","2020-02-11","Probablemente Python, por su uso en Data science",20,"abierta",["programming languages", "computer science"],_).
+%answer(6,3,"DrPepper","2020-12-02","Diría que Ruby, por la madurez del lenguage y su comunidad",50,"abierta",["programming languages", "computer science"],_).
+%answer(7,4,"Quatro","2020-11-22","Me cuesta entenderlo también",-5,"abierta",["C", "memory management"],_).
+%answer(8,4,"DrPepper","2020-11-05","La asignación dinámica de memoria en el Lenguaje de programación C, se realiza a través de un grupo de funciones en la biblioteca estándar de C, como malloc",30,"cerrada",["C", "memory management"],_).
+%answer(9,5,"Fanta","2020-10-08","Map retorna un nuevo arreglo, mientras que forEach modifica el arreglo original",45,"abierta",["javascript", "high order functions"],_).
+%answer(10,5,"Sprite","2020-02-11","El método forEach() está pensado para recorrer colecciones, mientras que el método map() está pensado para iterar sobre una colección dada",48,"abierta",["javascript", "high order functions"],_).
 
 % Clausulas
 % Reglas
@@ -395,3 +395,175 @@ stackTostring(Stack, StackStr):-
   atomic_list_concat(AnswersList,'',AnswersAtom),
   atom_string(AnswersAtom,AnswersStr),
   atomics_to_string([UsersStr,QuestionsStr,AnswersStr],'',StackStr).
+
+
+/* EJEMPLOS (Casos de uso)
+ * Se recomienda copiar estos ejemplos comentados y correrlos en el intérprete SWI-Prolog o bien en el sitio web
+ * provisto en las indicaciones de este proyecto.
+
+* stackRegister
+
+1) Registro existoso de un usuario
+
+stack([],[],[],[], S1),
+stackRegister(S1,"Canada Dry","mySuperPass",S2).
+
+2) Registro existoso de un usuario
+stack([],[],[],[], S3),
+stackRegister(S3,"Sprite Zero","mySuperPa$$",S4).
+
+3) Registro no exitoso de un usuario
+stack([],[],[["Coca Cola Zero", "blabla",0]],[], S5),
+stackRegister(S5,"Coca Cola Zero","mySuperPa$$",S6).
+
+
+* stackLogin
+
+1) Login existoso de un usuario
+
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345"]],[],[], SL1),
+stackLogin(SL1,"Canada Dry","mySuperPass",SL2).
+
+2) Login existoso de un usuario
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], SL3),
+stackLogin(SL3,"Pap","12345",SL4).
+
+3) Login no exitoso (validación de username y password)
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], SL5),
+stackLogin(SL5,"Pep","123asdasf45",SL6).
+
+* ask
+1) Pregunta exitosa
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3).
+
+2) Pregunta exitosa
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+stackLogin(A1,"Canada Dry","mySuperPass",A2),
+ask(A2,"2020-09-04","¿Qué es un Grafo?", ["algorithms", "computer science"], A3).
+
+3) Pregunta no exitosa (validación de usuario logueado)
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+ask(A1,"2020-10-08","¿Cómo funciona malloc?",["C", "memory management"], A2).
+
+* answer
+1) Respuesta exitosa
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",1,"Probablemente Python, por su uso en Data science",["programming languages", "computer science"],A5).
+
+2) Respuesta exitosa
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",1,"Diría que Ruby, por la madurez del lenguage y su comunidad",["programming languages", "computer science"],A5).
+
+3) Respuesta no exitosa (validación de id de pregunta)
+stack([],[["Canada Dry","mySuperPass",0],["Pap","12345",0]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",25,"No tengo idea, diría que COBOL",["programming languages", "computer science"],A5).
+
+* accept
+
+1) Accept exitoso
+stack([],[["Canada Dry","mySuperPass",11],["Pap","12345",18]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",1,"Diría que Ruby, por la madurez del lenguage y su comunidad",["programming languages", "computer science"],A5),
+
+2) Accept exitoso
+stack([],[["Canada Dry","mySuperPass",12],["Pap","12345",24]],[],[], A1),
+stackLogin(A1,"Canada Dry","mySuperPass",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Pap","12345",A4),
+answer(A4,"2020-02-11",1,"Probablemente Python, por su uso en Data science",["programming languages", "computer science"],A5),
+stackLogin(A5,"Canada Dry","mySuperPass",A6),
+accept(A6,1,1,A7).
+
+3) Accept no exitoso (validación de ID de pregunta)
+stack([],[["Coca Cola","mypa$$",0],["Inca Cola","12345",0]],[],[], A1),
+stackLogin(A1,"Coca Cola","mypa$$",A2),
+ask(A2, "2020-09-05","¿Cómo funciona Elixir?", ["elixir", "functional programming"], A3),
+stackLogin(A3,"Inca Cola","12345",A4),
+answer(A4,"2020-02-11",1,"Elixir es un lenguaje de programación funcional, concurrente, de propósito general que se ejecuta sobre la máquina virtual de Erlang",["elixir", "functional programming"],A5),
+stackLogin(A5,"Coca Cola","mypa$$",A6),
+accept(A6,22,1,A7).
+
+
+* stackTostring
+
+1) Impresión exitosa
+stack([],[["Canada Dry","mySuperPass",13],["Pap","12345",9]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",1,"Diría que Ruby, por la madurez del lenguage y su comunidad",["programming languages", "computer science"],A5),
+stackLogin(A5,"Pap","12345",A6),
+accept(A6,1,1,A7),
+stackTostring(A7,A8), write(A8).
+
+2) Impresión exitosa
+stack([],[["Coca Cola","mypa$$",12],["Inca Cola","12345",8]],[],[], A1),
+stackLogin(A1,"Coca Cola","mypa$$",A2),
+ask(A2, "2020-09-05","¿Cómo funciona Elixir?", ["elixir", "functional programming"], A3),
+stackLogin(A3,"Inca Cola","12345",A4),
+answer(A4,"2020-02-11",1,"Elixir es un lenguaje de programación funcional, concurrente, de propósito general que se ejecuta sobre la máquina virtual de Erlang",["elixir", "functional programming"],A5),
+stackLogin(A5,"Coca Cola","mypa$$",A6),
+accept(A6,1,1,A7),
+stackTostring(A7,A8), write(A8).
+
+3) Impresión exitosa
+stack([],[["Coca Cola","mypa$$",0],["Inca Cola","12345",0]],[],[], A1),
+stackLogin(A1,"Coca Cola","mypa$$",A2),
+ask(A2, "2019-09-05","¿Cuál es la diferencia entre .map y .forEach?", ["javascript", "high order functions"], A3),
+stackLogin(A3,"Inca Cola","12345",A4),
+answer(A4,"2020-01-02",1,"Map retorna un nuevo arreglo, mientras que forEach modifica el arreglo original",["javascript", "high order functions"],A5),
+stackLogin(A5,"Coca Cola","mypa$$",A6),
+accept(A6,1,1,A7),
+stackTostring(A7,A8), write(A8).
+
+* vote
+
+1) Votación positiva por una pregunta
+stack([],[["Coca Cola","mypa$$",5],["Inca Cola","12345",15]],[],[], A1),
+stackLogin(A1,"Coca Cola","mypa$$",A2),
+ask(A2, "2019-09-05","¿Cuál es la diferencia entre .map y .forEach?", ["javascript", "high order functions"], A3),
+stackLogin(A3,"Inca Cola","12345",A4),
+answer(A4,"2020-01-02",1,"Map retorna un nuevo arreglo, mientras que forEach modifica el arreglo original",["javascript", "high order functions"],A5),
+stackLogin(A5,"Coca Cola","mypa$$",A6),
+accept(A6,1,1,A7),
+stackLogin(A7,"Coca Cola","mypa$$",A8),
+getQuestion(A8,1,Q1),
+vote(A8,Q1,true,V1).
+
+2) Votación positiva por una respuesta
+stack([],[["Canada Dry","mySuperPass",10],["Pap","12345",20]],[],[], A1),
+stackLogin(A1,"Pap","12345",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Canada Dry","mySuperPass",A4),
+answer(A4,"2020-02-11",1,"Diría que Ruby, por la madurez del lenguage y su comunidad",["programming languages", "computer science"],A5),
+stackLogin(A5,"Pap","12345",A6),
+accept(A6,1,1,A7),
+stackLogin(A7,"Pap","12345",A8),
+getAnswer(A8,1,1,Answer1),
+vote(A8,Answer1,true,V1).
+
+3) Votación no válida (Pregunta no corresponde a sesión iniciada)
+stack([],[["Canada Dry","mySuperPass",11],["Pap","12345",12], ["Lemon Stones", "4dm1n", 10]],[],[], A1),
+stackLogin(A1,"Canada Dry","mySuperPass",A2),
+ask(A2, "2020-11-05","¿Cuáles son los lenguajes más populares el 2020?", ["programming languages", "computer science"], A3),
+stackLogin(A3,"Pap","12345",A4),
+answer(A4,"2020-02-11",1,"Probablemente Python, por su uso en Data science",["programming languages", "computer science"],A5),
+stackLogin(A5,"Canada Dry","mySuperPass",A6),
+accept(A6,1,1,A7),
+stackLogin(A7,"Lemon Stones","4dm1n",A8),
+getQuestion(A8,1,Q1),
+vote(A8,Q1,true,V1).
+*/
